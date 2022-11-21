@@ -1,6 +1,6 @@
 {{ "style-navigation.css" | asset_url | stylesheet_tag }}
 
-<header class="header">
+<header class="header {% if template != 'index' %}header-bg-pink{% endif %} ">
   <div class="header__container">
   <div class="header__nav">
       <ul class="header__list">

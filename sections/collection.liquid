@@ -1,0 +1,56 @@
+{{ 'style-collection.css' | asset_url | stylesheet_tag }}
+
+<div class="collection__container">
+  <div class="collection__banner-img">
+    <img src="{{ section.settings.collection_banner-img.src | img_url: "1920x" }}" alt="{{ section.settings.collection_banner-img.alt | escape }}">
+  </div>
+  <div class="collection__row">
+{% paginate collection.products by 7%}
+  {%- comment -%} <h1>{{ collection.title }}</h1> {%- endcomment -%}
+  
+  {% for product in collection.products %}
+    
+      <div class="collection__product">
+
+      
+      <a class="" href="{{ product.url | within: collection }}">
+        <img class="collection__product--img" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+      </a>
+      <a class="collection__product--url" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      <p class="collection__product--price">{{ product.price | money }}</p>
+      <a href="{{ section.settings.collection_link }}">{{ section.settings.collection_title }}</a>
+      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+    </div>
+    
+  {% else %}
+    <p>no matches</p>
+  {% endfor %}
+
+  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
+{% endpaginate %}
+</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "collection_banner-img",
+        "label": "Add image Banner"
+      }
+      // {
+      //   "type": "url",
+      //   "id": "collection_link",
+      //   "label": "Collection Link"
+      // },
+      // {
+      //   "type": "text",
+      //   "id": "collection_title",
+      //   "default": "New collection",
+      //   "label": "Link Title Collection"
+      // }
+    ]
+    }
+{% endschema %}
