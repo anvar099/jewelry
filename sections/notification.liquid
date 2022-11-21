@@ -1,0 +1,31 @@
+{{ "style-notification.css" | asset_url | stylesheet_tag}}
+
+{% for block in section.blocks %}
+  <div class="notification">
+    <p class="notification__text">
+      {{ block.settings.notification-text }}
+    </p>
+  </div>
+{% endfor %}
+
+
+{% schema %}
+{
+  "name": "Notification",
+  "blocks": [
+    {
+      "type": "Notification",
+      "name": "Notification",
+      "settings": [
+        {
+          "type": "text",
+          "id": "notification-text",
+          "label": "Notification Text",
+          "default": "Promo banner placeholder text"
+
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
