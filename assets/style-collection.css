@@ -38,17 +38,46 @@
     5% 100%,
     0% 95%,
     0% 5%
-  )
+  );
 }
 .collection__product--img {
-  border: 2px solid green;
   width: 250px;
   height: 250px;
   object-fit: cover;
 }
 .collection__product--url {
-  border: 2px solid blue;
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1d1d1d;
+  text-decoration: none;
 }
 .collection__product--price {
-  border: 2px solid gold;
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1d1d1d;
+}
+.collection_add-product {
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c5978d;
+  text-decoration: none;
+  margin-top: 10px;
 }
