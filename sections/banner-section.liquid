@@ -12,8 +12,8 @@
                 <img class="banner__image" src="{{ section.settings.banner_image.src | img_url: 'medium' }}" alt="{{ section.settings.banner_image.alt | escape }}">
             </div>
             <div class="banner__content">
-                <h2>{{ section.settings.banner_title }}</h2>
-                <p>{{ section.settings.banner_description }}</p>
+                <h2 class="banner__content--title">{{ section.settings.banner_title }}</h2>
+                <p class="banner__content--paragraph">{{ section.settings.banner_description }}</p>
                 <div>
                     {% render 'button' title: section.settings.banner_url_text link: section.settings.banner_url %}
                 </div>

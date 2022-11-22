@@ -1,0 +1,41 @@
+{{ "style-sort-collection.css" | asset_url | stylesheet_tag }}
+
+<div class="sort__container">
+  <h2 class="sort__title">COLLECTIONS</h2>
+  <select class="sort__select" id="sort_collections">
+
+    {% for collection in collections %}
+      <script>
+        console.log({{ collection | json }})
+      </script>
+
+      <option value="{{ collection.title }}">
+        {{ collection.title }}
+      </option>
+    {% endfor %}
+  </select>
+</div>
+<script>
+  Shopify.queryParams = {};
+
+// Preserve existing query parameters
+  if (location.search.length) {
+    var params = location.search.substr(1).split('&');
+
+    for (var i = 0; i < params.length; i++) {
+      var keyValue = params[i].split('=');
+
+      if (keyValue.length) {
+        Shopify.queryParams[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+      }
+    }
+  }
+
+// Update sort_by query parameter on select change
+  document.querySelector('#sort-by').addEventListener('change', function(e) {
+    var value = e.target.value;
+
+    Shopify.queryParams.sort_by = value;
+    location.search = new URLSearchParams(Shopify.queryParams).toString();
+  });
+</script>

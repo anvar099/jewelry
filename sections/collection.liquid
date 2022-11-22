@@ -1,9 +1,17 @@
 {{ 'style-collection.css' | asset_url | stylesheet_tag }}
 
+
+
 <div class="collection__container">
   <div class="collection__banner-img">
     <img src="{{ section.settings.collection_banner-img.src | img_url: "1920x" }}" alt="{{ section.settings.collection_banner-img.alt | escape }}">
   </div>
+  {% render 'filter' %}
+  <div class="sort__products__row"> 
+    {% render 'sort' %}
+    {% render 'sort-collection' %}
+  </div>
+  
   
 {% paginate collection.products by 7%}
   <div class="collection__row">
@@ -25,9 +33,6 @@
     <p>no matches</p>
   {% endfor %}
 </div>
-  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
-{% endpaginate %}
-
 </div>
 
 {% schema %}
@@ -53,3 +58,6 @@
     ]
     }
 {% endschema %}
+
+
+

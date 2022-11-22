@@ -2,37 +2,36 @@
   padding: 60px;
   background-color: #f3e7e0;
 }
-.banner__container{
+.banner__container {
   width: 100%;
   max-width: 1440px;
-  
+
   margin: 0 auto;
-  
 }
-.banner__background{
+.banner__background {
   padding: 37px 84px;
   background-repeat: no-repeat;
   background-position: center;
 }
-.banner__wrapper{
+.banner__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #E8CCBA;
-  border: 1px solid #1D1D1D;
+  background: #e8ccba;
+  border: 1px solid #1d1d1d;
   /* height: 100%; */
   /* padding: 100px; */
   /* margin: 0 60px; */
 }
-.banner__image--wrapper{
+.banner__image--wrapper {
   width: 50%;
   /* height: 100%; */
 }
-.banner__image{
+.banner__image {
   width: 100%;
   height: 100%;
 }
-.banner__content{
+.banner__content {
   width: 50%;
   height: 100%;
   display: flex;
@@ -40,16 +39,26 @@
   justify-content: center;
   flex-direction: column;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
+.banner__content--title {
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1d1d1d;
+}
+.banner__content--paragraph {
+  font-family: "MinionPro-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #1d1d1d;
+  width: 90%;
+  margin-top: 20px;
+}

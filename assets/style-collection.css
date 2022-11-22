@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 .collection__banner-img {
   width: 100%;
@@ -80,4 +81,32 @@
   color: #c5978d;
   text-decoration: none;
   margin-top: 10px;
+}
+
+.sort__products__row {
+  display: flex;
+  gap: 0 40px;
+}
+
+
+.page {
+  color: red !important;
+  
+}
+
+.next a{
+  color: yellow !important;
+}
+.prev a{
+  color: green !important;
+}
+.prev {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.next {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
