@@ -1,7 +1,7 @@
 {{ "style-sort-collection.css" | asset_url | stylesheet_tag }}
 
 <div class="sort__container">
-  <h2 class="sort__title">COLLECTIONS</h2>
+  <p class="sort__title" for="sort_collections">COLLECTIONS</p>
   <select class="sort__select" id="sort_collections">
 
     {% for collection in collections %}
@@ -37,5 +37,9 @@
 
     Shopify.queryParams.sort_by = value;
     location.search = new URLSearchParams(Shopify.queryParams).toString();
+  });
+  document.querySelector('#sort_collections').addEventListener('change', function(e){
+    var collection = e.target.value;
+    location.assign(collection.toLowerCase())
   });
 </script>
