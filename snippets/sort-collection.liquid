@@ -2,14 +2,11 @@
 
 <div class="sort__container">
   <p class="sort__title" for="sort_collections">COLLECTIONS</p>
-  <select class="sort__select" id="sort_collections">
-
+  <select class="sort__select" id="collection_list">
+    <option value="selected" selected disabled>select</option>
     {% for collection in collections %}
-      <script>
-        console.log({{ collection | json }})
-      </script>
 
-      <option value="{{ collection.title }}">
+      <option value="{{ collection.url }}">
         {{ collection.title }}
       </option>
     {% endfor %}
@@ -38,8 +35,8 @@
     Shopify.queryParams.sort_by = value;
     location.search = new URLSearchParams(Shopify.queryParams).toString();
   });
-  document.querySelector('#sort_collections').addEventListener('change', function(e){
-    var collection = e.target.value;
-    location.assign(collection.toLowerCase())
-  });
+  let collection_list = document.querySelector("#collection_list")
+  collection_list.addEventListener("change", (e)=> {
+    location.pathname = e.target.value
+  })
 </script>
