@@ -4,7 +4,7 @@
   <form class="filter__form">
       {% for filter in collection.filters %}
               <div class="filter__wrapper">
-                <a class="filter__link" href="{{ filter.url_to_remove }}">All</a>
+                <a class="filter__link" href="{{  }}">All</a>
                   {% case filter.type %}
                       {% when 'boolean' or 'list' %}
                       <ul class="filter__list">

@@ -5,7 +5,6 @@
   <div class="collection__container">
     <div class="collection__content">
 
-
       <div class="collection__banner-img">
         <img src="{{ section.settings.collection_banner-img.src | img_url: "1920x" }}" alt="{{ section.settings.collection_banner-img.alt | escape }}">
       </div>
@@ -15,15 +14,9 @@
         {% render 'sort-collection' %}
       </div>
 
-
-
       <div class="collection__row">
         {% for product in collection.products %}
-
           <div class="collection__product">
-
-            
-
             <a class="" href="{{ product.url | within: collection }}">
               <img class="collection__product--img" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
             </a>
@@ -33,46 +26,59 @@
             {% unless product.available %}<br><strong>sold out</strong>
             {% endunless %}
           </div>
+          
 
         {% else %}
           <p>no matches</p>
         {% endfor %}
       </div>
-
-    </div>
-      {% if paginate.pages > 1 %}
-        <div class="pagination">
-          <div class="border-right ">
-            <a class="pagination__link {% if paginate.previous.url %}pagination__active--prev{% endif %}" href="{{ paginate.previous.url }}">
-              previous
-            </a>
-          </div>
-          <div class="pagination__content">
-            {%- for part in paginate.parts -%}
-              {%- if part.is_link -%}
-                <a class="pagination__item pagination__item--current">{{ part.title | link_to: part.url }}</a>
-              {%- else -%}
-                <a class="pagination__item pagination__content--link">{{ part.title }}</a>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-          <div class="border-left">
-            <a class="pagination__link {% if paginate.next.url %}pagination__active--next{% endif %}" href="{{ paginate.next.url }}">
-              next
+      {%- comment -%} {% for item in collection.metafields.accentuate.url %}
+        
+      
+      <div>
+        <div>
+          <img src="{{ collection.metafields.accentuate.banner_image[0].src }}" alt="">
+        </div>
+        <div>
+          <p>{{ collection.metafields.accentuate.banner_text }}</p>
+          <div>
+            <a class="" href="{{ collection.metafields.accentuate.url }}">
+              {{ collection.metafields.accentuate.button_label }}
             </a>
           </div>
         </div>
-      {% endif %}
-    
-  </div>
+      </div>
+    {% endfor %} {%- endcomment -%}
+    </div>
 
+
+    {% if paginate.pages > 1 %}
+      <div class="pagination">
+        <div class="border-right ">
+          <a class="pagination__link {% if paginate.previous.url %}pagination__active--prev{% endif %}" href="{{ paginate.previous.url }}">
+            previous
+          </a>
+        </div>
+        <div class="pagination__content">
+          {%- for part in paginate.parts -%}
+            {%- if part.is_link -%}
+              <a class="pagination__item pagination__item--current">{{ part.title | link_to: part.url }}</a>
+            {%- else -%}
+              <a class="pagination__item pagination__content--link">{{ part.title }}</a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <div class="border-left">
+          <a class="pagination__link {% if paginate.next.url %}pagination__active--next{% endif %}" href="{{ paginate.next.url }}">
+            next
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
 {% endpaginate %}
- <script>
-  console.log("and other")
-  if({{ collection.all_products_count }} < 5){
-    console.log('hello')
-  }
- </script>
+
+
 
 {% schema %}
   {
