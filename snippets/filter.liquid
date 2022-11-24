@@ -10,7 +10,7 @@
                       <ul class="filter__list">
                         {% for filter_value in filter.values %}
                         <li class="filter__item">
-                                  <label class="filter__label filter__link" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                                  <label class="filter__label filter__link {% if filter_value.active %}checked{% endif %}" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
                                       <input 
                                           class="filter__checkbox"
                                           type="checkbox"

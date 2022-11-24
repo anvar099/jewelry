@@ -2,66 +2,77 @@
 
 
 {% paginate collection.products by 7%}
-<div class="collection__container">
-  <div class="collection__banner-img">
-    <img src="{{ section.settings.collection_banner-img.src | img_url: "1920x" }}" alt="{{ section.settings.collection_banner-img.alt | escape }}">
-  </div>
-  {% render 'filter' %}
-  <div class="sort__products__row">
-    {% render 'sort' %}
-    {% render 'sort-collection' %}
-  </div>
+  <div class="collection__container">
+    <div class="collection__content">
 
 
- 
-    <div class="collection__row">
-      {% for product in collection.products %}
+      <div class="collection__banner-img">
+        <img src="{{ section.settings.collection_banner-img.src | img_url: "1920x" }}" alt="{{ section.settings.collection_banner-img.alt | escape }}">
+      </div>
+      {% render 'filter' %}
+      <div class="sort__products__row">
+        {% render 'sort' %}
+        {% render 'sort-collection' %}
+      </div>
 
-        <div class="collection__product">
 
 
-          <a class="" href="{{ product.url | within: collection }}">
-            <img class="collection__product--img" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-          </a>
-          <a class="collection__product--url" href="{{ product.url | within: collection }}">{{ product.title }}</a>
-          <p class="collection__product--price">{{ product.price | money }}</p>
-          <a class="collection_add-product" href="{{ section.settings.collection_link }}">{{ section.settings.collection_title }}</a>
-          {% unless product.available %}<br><strong>sold out</strong>
-          {% endunless %}
+      <div class="collection__row">
+        {% for product in collection.products %}
+
+          <div class="collection__product">
+
+            
+
+            <a class="" href="{{ product.url | within: collection }}">
+              <img class="collection__product--img" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+            </a>
+            <a class="collection__product--url" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+            <p class="collection__product--price">{{ product.price | money }}</p>
+            <a class="collection_add-product" href="{{ section.settings.collection_link }}">{{ section.settings.collection_title }}</a>
+            {% unless product.available %}<br><strong>sold out</strong>
+            {% endunless %}
+          </div>
+
+        {% else %}
+          <p>no matches</p>
+        {% endfor %}
+      </div>
+
+    </div>
+      {% if paginate.pages > 1 %}
+        <div class="pagination">
+          <div class="border-right ">
+            <a class="pagination__link {% if paginate.previous.url %}pagination__active--prev{% endif %}" href="{{ paginate.previous.url }}">
+              previous
+            </a>
+          </div>
+          <div class="pagination__content">
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a class="pagination__item pagination__item--current">{{ part.title | link_to: part.url }}</a>
+              {%- else -%}
+                <a class="pagination__item pagination__content--link">{{ part.title }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          <div class="border-left">
+            <a class="pagination__link {% if paginate.next.url %}pagination__active--next{% endif %}" href="{{ paginate.next.url }}">
+              next
+            </a>
+          </div>
         </div>
+      {% endif %}
+    
+  </div>
 
-      {% else %}
-        <p>no matches</p>
-      {% endfor %}
-    </div>
-
-    <div class="pagination">
-      <div class="border-right ">
-        <a class="pagination__link {% if paginate.previous.url %}pagination__active--prev{% endif %}" href="{{ paginate.previous.url }}">
-          previous
-        </a>
-      </div>
-      <div class="pagination__content">
-        {%- for part in paginate.parts -%}
-          {%- if part.is_link -%}
-            <a class="pagination__item pagination__item--current">{{ part.title | link_to: part.url }}</a>
-          {%- else -%}
-            <a class="pagination__item pagination__content--link">{{ part.title }}</a>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-      <div class="border-left">
-        <a class="pagination__link {% if paginate.next.url %}pagination__active--next{% endif %}" href="{{ paginate.next.url }}">
-          next
-        </a>
-      </div>
-    </div>
-
-</div>
-
-  
 {% endpaginate %}
-
+ <script>
+  console.log("and other")
+  if({{ collection.all_products_count }} < 5){
+    console.log('hello')
+  }
+ </script>
 
 {% schema %}
   {
