@@ -1,0 +1,38 @@
+{{ 'style-pdp-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="pdp__banner__container">
+  <style>
+    .pdp__banner__container {
+      background-image: url('{{ section.settings.pdp-banner-bg.src | img_url: '1920x' }}');
+
+    }
+  </style>
+  <div class="pdp__banner__content">
+    <div class="pdp__banner__img--content">
+      <img class="pdp__banner__sign" src="{{ product.metafields.accentuate.pdp_banner[0].src }}" alt="product_image">
+    </div>
+    <div class="pdp__banner__description">
+      <h3 class="pdp__banner__description--title">About the design</h3>
+      <div class="pdp__banner__description--text">
+        {{ product.metafields.accentuate.text }}
+      </div>
+      <div class="pdp__banner__description--text margin">
+        {{ product.metafields.accentuate.pdp_banner_description_2 }}
+      </div>
+      <img class="pdp__banner__description--sign" src="{{ product.metafields.accentuate.pdp_banner_sign[0].src }}" alt="product_image">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Pdp Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "pdp-banner-bg",
+        "label": "Pdp Banner Bg-Img"
+      }
+    ]
+  }
+{% endschema %}

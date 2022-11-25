@@ -1,0 +1,55 @@
+.pdp__banner__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 100px 150px;
+}
+.pdp__banner__content {
+  max-width: 1140px;
+  width: 100%;
+  height: 491px;
+  background-color: #f3e7e0;
+  display: flex;
+}
+.pdp__banner__img--content {
+  width: 50%;
+}
+.pdp__banner__description {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pdp__banner__description--title {
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1d1d1d;
+  margin-bottom: 20px;
+}
+.pdp__banner__description--text {
+  font-family: "Minion Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: #1d1d1d;
+  max-width: 431px;
+}
+.pdp__banner__description--text.margin {
+  margin-top: 40px;
+}
+.pdp__banner__description--sign {
+  margin-top: 20px;
+  width: 152px;
+  height: 100px;
+}

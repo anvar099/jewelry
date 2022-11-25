@@ -1,0 +1,83 @@
+{{ 'style-pdp-product-details.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+<div class="pdp__container">
+  <div class="carousel__container">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide">
+            <img src="{{ image.src | image_url }}" alt="{{ image.alt | escape }}">
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="swiper-pagination">
+    </div>
+  </div>
+
+  <div class="product__info">
+    <div class="product__info-container">
+    <p class="pdp__details__product--category">RINGS</p>
+    <h1 class="pdp__details__product--title">{{ product.title }}</h1>
+    {%- comment -%} <h1 class="pdp__details__product--price">{{ product.price }}</h1> {%- endcomment -%}
+    <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+      <select name="id" id="productSelect">
+        {% for variant in product.variants %}
+          {% if variant.available %}
+            <option value="{{ variant.id }}">
+              {{ variant.title }} - {{ variant.price | money_with_currency }}
+            </option>
+          {% else %}
+            <option disabled="disabled">
+              {{ variant.title }} - sold out
+            </option>
+          {% endif %}
+        {% endfor %}
+      </select>
+
+       <p class="pdp__details__price">{{ current_variant.price | money }}</p>
+      {%- comment -%} <label for="Quantity">quantity</label>
+      <input type="number" id="Quantity" name="quantity" value="1" min="1"> {%- endcomment -%}
+      <div class="pdp__details__btn">
+        <button class="pdp__details__btn--url" type="submit" name="add" id="AddToCart">Add to cart</button>
+      </div>
+      
+    </form>
+    <div class="pdp__product__list">
+        {{ product.metafields.accentuate.product_types_list }}
+    </div>
+    <h4 class="pdp__details__title">Description</h4>
+    <div class="pdp__details__text">
+      {{ product.metafields.accentuate.product_description }}
+    </div>
+    <h4 class="pdp__details__title">Details</h4>
+    <div class="pdp__details__text--list">
+      {{ product.metafields.Details.product_details }}
+    </div>
+    <h4 class="pdp__details__title">Shipping</h4>
+    <div class="pdp__details__text--list">
+      {{ product.metafields.accentuate.product_shipping }}
+    </div>
+    <div class="pdp__details__contact">
+      <h2 class="phone">Contact us for more information +1 917 509 3777</h2>
+      <h2 class="email">info@dgregory.com</h2>
+    </div>
+    {%- comment -%} <div>{{ product.description }}</div> {%- endcomment -%}
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    direction: "vertical",
+    slidesPerView: 1,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+    }
+  });
+</script>

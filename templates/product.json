@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "product": {
+      "type": "pdp-product-details"
+    },
+    "pdp-banner": {
+      "type": "pdp-banner",
+      "settings": {}
+    }
+  },
+  "order": [
+    "product",
+    "pdp-banner"
+  ]
+}
+
