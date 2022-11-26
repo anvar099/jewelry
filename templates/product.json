@@ -6,11 +6,16 @@
     "pdp-banner": {
       "type": "pdp-banner",
       "settings": {}
+    },
+    "recomended-products": {
+      "type": "recomended-products",
+      "settings": {}
     }
   },
   "order": [
     "product",
-    "pdp-banner"
+    "pdp-banner",
+    "recomended-products"
   ]
 }
 

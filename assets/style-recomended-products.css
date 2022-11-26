@@ -1,0 +1,27 @@
+.product__recomend__container {
+  background-color: #f3e7e0;
+  border: 2px solid red;
+  padding: 60px 150px 80px 150px;
+}
+.product__recomend__content {
+  border: 2px solid blue;
+  display: flex;
+  gap: 0 40px;
+}
+.product__recomend__cart {
+  border: 2px solid green;
+  flex-direction: column;
+}
+.product__recomend__cart--img {
+  border: 2px solid yellow;
+  width: 90%;
+  height: 100%;
+}
+.product__recomend__cart--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product__recomend__item {
+  border: 2px solid red;
+}

@@ -62,7 +62,7 @@
   text-transform: uppercase;
   text-decoration: none;
   margin-bottom: 30px;
-  font-family: "SF New Republic";
+  font-family: "SF New Republic"; 
 }
 .product__item:first-child,
 .product__item:last-child {

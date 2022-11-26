@@ -1,0 +1,77 @@
+{{ "style-recomended-products.css" | asset_url | stylesheet_tag }}
+
+<div class="product__recomend__container">
+    <h3>{{ section.settings.title-content }}</h3>
+    <div class="product__recomend__content">
+      {% for product in section.settings.product-lists %}
+        <div class="product__recomend__cart" id="shield">
+          <div class="product__recomend__cart--img">
+          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt }}"/>
+        </div>
+          <div class="product__recomend__item">
+            <h3 class="product__recomend__item--title">{{ product.title }}</h3>
+            <h5 class="product__recomend__item--price">{{ product.price | money }}</h5>
+            <a class="product__recomend__item--url" href="{{ section.settings.product-link }}">{{ section.settings.product-link-title }}</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+</div>
+<style>
+  .product__recomend__cart{
+    background-image: url('../assets/svg.product-tile.svg');
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 256px;
+    height: 350px;
+
+}
+.product__recomend__cart--img{
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product__recomend__item{
+  position: absolute;
+  bottom: -15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+</style>
+{% schema %}
+  {
+    "name": "Recomended Products",
+    "settings": [
+      {
+        "type": "product_list",
+        "id": "product-lists",
+        "label": "Product List"
+      }, {
+        "type": "text",
+        "id": "title-content",
+        "default": "You might also like",
+        "label": "Title Content"
+      }, {
+        "type": "url",
+        "id": "product-link",
+        "default": "/",
+        "label": "Product Link"
+      }, {
+        "type": "text",
+        "id": "product-link-title",
+        "default": "link to",
+        "label": "Link Title Label"
+      }
+    ]
+  }
+{% endschema %}
