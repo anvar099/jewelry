@@ -1,21 +1,47 @@
 .product__recomend__container {
   background-color: #f3e7e0;
-  border: 2px solid red;
-  padding: 60px 150px 80px 150px;
+  padding: 60px 6% 80px 6%;
+}
+.product__recomend__title {
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0px auto 44px auto;
 }
 .product__recomend__content {
-  border: 2px solid blue;
   display: flex;
   gap: 0 40px;
+  align-items: center;
+  justify-content: center;
 }
 .product__recomend__cart {
-  border: 2px solid green;
   flex-direction: column;
+  background-image: url("../assets/svg.product-tile.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 256px;
+  position: relative;
+  height: 400px;
 }
 .product__recomend__cart--img {
-  border: 2px solid yellow;
   width: 90%;
   height: 100%;
+
+  overflow: hidden;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  margin-top: 10%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .product__recomend__cart--img img {
   width: 100%;
@@ -23,5 +49,39 @@
   object-fit: cover;
 }
 .product__recomend__item {
-  border: 2px solid red;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  bottom: 12px;
+}
+.product__recomend__item--title,
+.product__recomend__item--price {
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1d1d1d;
+}
+.product__recomend__item--url {
+  font-family: "SF New Republic";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 10px;
+  color: #c5978d;
 }
